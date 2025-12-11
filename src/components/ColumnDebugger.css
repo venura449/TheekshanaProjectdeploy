@@ -1,0 +1,93 @@
+.column-debugger {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+}
+
+.column-debugger h4 {
+  margin: 0 0 1rem 0;
+  color: #856404;
+  font-size: 1rem;
+}
+
+.column-debugger h5 {
+  margin: 0.5rem 0;
+  color: #856404;
+  font-size: 0.9rem;
+}
+
+.debug-section {
+  margin-bottom: 1rem;
+}
+
+.column-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.column-list li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.column-list li.detected {
+  background-color: #d4edda;
+  padding-left: 0.5rem;
+  margin-left: -0.5rem;
+  border-radius: 3px;
+}
+
+.sample-value {
+  color: #666;
+  font-style: italic;
+  margin-left: 0.5rem;
+}
+
+.mappings {
+  background: white;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.mapping-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.mapping-item:last-child {
+  border-bottom: none;
+}
+
+.not-found {
+  color: #dc3545;
+  font-weight: 500;
+}
+
+.sample-values {
+  background: white;
+  padding: 0.75rem;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.sample-item {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.8rem;
+}
+
+.sample-item strong {
+  color: #856404;
+  margin-right: 0.5rem;
+}
+

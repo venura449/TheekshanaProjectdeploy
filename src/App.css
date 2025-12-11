@@ -1,0 +1,27 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.error-message {
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 800px;
+  color: #c33;
+}
+
+.error-message p {
+  margin: 0.5rem 0;
+}
+
+.error-message ul {
+  margin: 0.5rem 0;
+  padding-left: 2rem;
+}
+
+.error-message li {
+  margin: 0.25rem 0;
+}
