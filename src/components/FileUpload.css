@@ -7,6 +7,12 @@
   margin-bottom: 2rem;
 }
 
+.upload-buttons-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 .upload-button {
   padding: 0.75rem 2rem;
   font-size: 1rem;
@@ -24,6 +30,32 @@
 }
 
 .upload-button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+.mode-toggle-button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #42b883;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.mode-toggle-button:hover:not(:disabled) {
+  background-color: #35a372;
+}
+
+.mode-toggle-button.active {
+  background-color: #2d8659;
+  box-shadow: 0 0 0 3px rgba(66, 184, 131, 0.3);
+}
+
+.mode-toggle-button:disabled {
   background-color: #888;
   cursor: not-allowed;
 }

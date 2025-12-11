@@ -25,3 +25,117 @@
 .error-message li {
   margin: 0.25rem 0;
 }
+
+.combined-mode-container {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  padding: 0 2rem;
+}
+
+.selected-files-list {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 2px solid #e0e0e0;
+}
+
+.selected-files-list h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.files-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.file-name {
+  flex: 1;
+  color: #333;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+.remove-file-button {
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 1rem;
+}
+
+.remove-file-button:hover:not(:disabled) {
+  background-color: #cc0000;
+}
+
+.remove-file-button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.combined-mode-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.combine-button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #42b883;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.combine-button:hover:not(:disabled) {
+  background-color: #35a372;
+}
+
+.combine-button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+.clear-files-button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.clear-files-button:hover:not(:disabled) {
+  background-color: #f57c00;
+}
+
+.clear-files-button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}

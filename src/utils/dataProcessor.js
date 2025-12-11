@@ -480,3 +480,69 @@ const processBusinessesByMarketType = (data) => {
   }));
 };
 
+/**
+ * Combine multiple Excel files into one
+ * @param {File[]} files - Array of Excel file objects
+ * @returns {Promise<Blob>} - Combined Excel file as Blob
+ */
+export const combineExcelFiles = async (files) => {
+  if (!files || files.length === 0) {
+    throw new Error('No files provided');
+  }
+
+  const allData = [];
+  let headers = new Set();
+
+  // Read all files and collect data
+  for (const file of files) {
+    const data = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const workbookData = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(workbookData, { type: 'array' });
+          
+          // Get the first sheet from each file
+          const firstSheetName = workbook.SheetNames[0];
+          const worksheet = workbook.Sheets[firstSheetName];
+          
+          // Convert to JSON
+          const jsonData = XLSX.utils.sheet_to_json(worksheet);
+          
+          // Collect headers
+          if (jsonData.length > 0) {
+            Object.keys(jsonData[0]).forEach(key => headers.add(key));
+          }
+          
+          resolve(jsonData);
+        } catch (error) {
+          reject(error);
+        }
+      };
+      reader.onerror = () => reject(new Error(`Failed to read file: ${file.name}`));
+      reader.readAsArrayBuffer(file);
+    });
+
+    allData.push(...data);
+  }
+
+  // Normalize headers - ensure all rows have all headers
+  const allHeaders = Array.from(headers);
+  const normalizedData = allData.map(row => {
+    const normalizedRow = {};
+    allHeaders.forEach(header => {
+      normalizedRow[header] = row[header] !== undefined ? row[header] : '';
+    });
+    return normalizedRow;
+  });
+
+  // Create new workbook with combined data
+  const newWorkbook = XLSX.utils.book_new();
+  const newWorksheet = XLSX.utils.json_to_sheet(normalizedData);
+  XLSX.utils.book_append_sheet(newWorkbook, newWorksheet, 'Combined Data');
+
+  // Convert workbook to blob
+  const excelBuffer = XLSX.write(newWorkbook, { bookType: 'xlsx', type: 'array' });
+  return new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+};
+
